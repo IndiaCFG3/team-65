@@ -12,7 +12,7 @@ class Teacher(models.Model):
         return self.teacher_name
 
 class Student(models.Model):
-    teacher=models.ForeignKey(Teacher,on_delete=models.CASCADE)
+    teacher=models.ForeignKey(User, on_delete=models.CASCADE)
     student_name= models.CharField(max_length=100)
     gender=models.CharField(max_length=10)
     phone_number=models.IntegerField(max_length=10)

@@ -8,5 +8,6 @@ urlpatterns = [
     path('auth/signup/', include('rest_auth.registration.urls')),
     path('auth/refresh-token/', refresh_jwt_token),
     path("individualeval", EvaluationView.as_view(), name="Appointment"),
+    path("studentcreate", StudentCreationView.as_view(), name="studentcreate"),
 ]
 
