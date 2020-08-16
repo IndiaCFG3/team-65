@@ -1,0 +1,75 @@
+<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> </script> 
+
+<div class="container"
+  fxLayout="column"
+  fxLayoutGap="10px">
+
+  <div fxFlex class="form-size">
+    <div>
+        <h3>STUDENT INFORMATION</h3>
+        <hr>
+    </div>
+  </div>
+
+  <!--Reactive form-->
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+
+    <div *ngIf = "visibility" [@expand]>
+      <!--Display form values-->
+      <h3>Your Submission</h3>
+      <p matLine>First Name:- {{feedbackServer.firstname}}</p>
+      <p matLine>Last Name:- {{feedbackServer.lastname}}</p>
+      <p matLine>Gender:- {{feedbackServer.gender}}</p>
+    </div>
+    
+    <form novalidate [hidden]="visibility" [@expand] #fform="ngForm" (ngSubmit)="onSubmit()">
+      <!--formControlName binds data model to template-->
+        <mat-form-field class = "half-width" appearance="fill" [floatLabel]="floatLabelControl.value">
+        First Name:  
+          <input matInput placeholder="First Name" type="text" [(ngModel)]="firstname" #firstname="ngModel" name="firstname">
+          <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class = "half-width" appearance="fill" [floatLabel]="floatLabelControl.value">
+        Last Name: 
+          <input matInput placeholder = "Last Name" type="text" [(ngModel)]="lastname" #lastname="ngModel" name="lastname">
+          <mat-error *ngIf = "formErrors.lastname">{{formErrors.lastname}}</mat-error>
+        </mat-form-field>
+        <br><br>
+        Gender:
+        <mat-radio-group>
+            <mat-radio-button value="male" [(ngModel)]="male" name="male" #male="ngModel">Male</mat-radio-button>
+            <mat-radio-button value="female" [(ngModel)]="female" name="female" #female="ngModel">Female</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="formErrors.gender">{{formErrors.gender}}</mat-error>
+        <br><br>
+
+        <mat-card>
+            <mat-card-content>
+              <h2 class="example-h2">Skills</h2>
+              <section class="example-section">
+                <mat-checkbox class="example-margin" [(ngModel)]="Collaboration" name="Collaboration" #Collaboration="ngModel">Collaboration</mat-checkbox><br>
+                <mat-checkbox class="example-margin" [(ngModel)]="CriticalThinking" name="CriticalThinking" #Collaboration="ngModel">Critical Thinking</mat-checkbox><br>
+                <mat-checkbox class="example-margin" [(ngModel)]="Values" name="Values" #Collaboration="ngModel">Values</mat-checkbox><br>
+              </section>
+              <section class="example-section">
+                    <p [hidden]="!Values">I am working</p>
+              </section>
+            </mat-card-content>
+        </mat-card>
+
+      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
+  </div>
+
+  <div *ngIf="visibility" [hidden]="feedbackServer || errMess">
+    <h4>Submitting form . . . Please Wait</h4>
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div fxFlex *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{leaderErrMess}}</h4>
+  </div>
+  
+</div>
+

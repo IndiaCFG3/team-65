@@ -30,6 +30,8 @@ import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentreportComponent } from './studentreport/studentreport.component';
+import {CarouselComponent} from './carousel/carousel.component';
+import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -41,7 +43,11 @@ import { StudentreportComponent } from './studentreport/studentreport.component'
     LoginComponent,
     SigninComponent,
     DashboardComponent,
-    StudentreportComponent
+    StudentreportComponent,
+    CarouselComponent,
+    
+
+    
     
   ],
   imports: [
@@ -63,6 +69,7 @@ import { StudentreportComponent } from './studentreport/studentreport.component'
     MatCheckboxModule,
     FlexLayoutModule,
     HttpClientModule,
+    NgbModule
   ],
   providers: [
     AuthService,

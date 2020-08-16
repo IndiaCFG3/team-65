@@ -6,12 +6,14 @@ import {SigninComponent} from './signin/signin.component';
 import { AuthGuard } from './auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentreportComponent } from './studentreport/studentreport.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   
   { path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
-  {path:'report',component:StudentreportComponent}
+  {path:'report',component:StudentreportComponent},
+  {path:'carousel',component:CarouselComponent}
   //{path : 'signin',component:SigninComponent},
   //{path:'login',component : LoginComponent},
   //{ path: '', redirectTo: 'login', pathMatch: 'full' },
