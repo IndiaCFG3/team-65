@@ -30,6 +30,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CarouselComponent } from './carousel/carousel.component';  
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     SigninComponent,
     DashboardComponent,
+    CarouselComponent
   ],
   imports: [
     MatRadioModule,
@@ -59,6 +62,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSliderModule,
     MatCheckboxModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [
     AuthService,
