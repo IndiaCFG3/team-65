@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -16,7 +16,7 @@ class Student(models.Model):
     student_name= models.CharField(max_length=100)
     gender=models.CharField(max_length=10)
     phone_number=models.IntegerField(max_length=10)
-    roll_no=models.IntegherFierld(max_length=10)
+    roll_no=models.IntegerField(max_length=10)
 
     def __str__(self):
         return self.student_name
@@ -40,7 +40,7 @@ class Group(models.Model):
 class Criteria(models.Model): 
     group = models.ForeignKey(Group,on_delete=models.CASCADE)
     criteria_name= models.CharField(max_length=100)
-    selected= models.BooleanField(default=false)
+    selected= models.BooleanField(default=0)
     description=models.CharField(max_length=200)
 
     def __str__(self):
