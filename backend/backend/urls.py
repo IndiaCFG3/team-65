@@ -17,14 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
-from tutorial import views
+from accounts import views
  
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/", include("tutorial.urls")),
+    #path("api/", include("accounts.urls")),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # path("moviedetails/", views.MovieSingle.as_view(), name="dash"),
 ]
