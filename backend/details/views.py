@@ -60,13 +60,23 @@ from rest_framework.views import APIView
 
             
 #         return Response(studentdata)
+class StudentCreationView(APIView):
+    def get(self, request):
+        studentname = request.POST['studentname']
+        gender = request.POST['gender']
+        phonenumber = request.POST['phonenumber']
+        rollno = request.POST['rollno']
+
+        Student.objects.create(student_name = studentname, gender = gender, phone_number = phonenumber, roll_no = rollno)
+        
+        return Response({"Success":"Student Created Successfully"})
 
 class EvaluationView(APIView):
     def get(self, request):
           
         userdata= request.user
 
-        students = Student.objects.filter(teacher__user = userdata )
+        students = Student.objects.filter(teacher = userdata )
 
         studentdata = {}
         for x in students:
