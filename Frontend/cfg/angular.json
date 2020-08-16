@@ -125,10 +125,6 @@
   },
   "defaultProject": "cfg",
   "cli": {
-<<<<<<< HEAD
-    "analytics": "e444768c-3d59-4161-be09-87a072d61e80"
-=======
     "analytics": "1260140c-dd3b-4d7e-bfbe-fb47cf632c57"
->>>>>>> bc08f81be15d14dc71ebf359fc383ddb10f02c28
   }
 }
