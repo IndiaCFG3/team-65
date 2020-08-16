@@ -10,10 +10,15 @@ import { CarouselComponent } from './carousel/carousel.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
+<<<<<<< HEAD
   
   { path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'report',component:StudentreportComponent},
   {path:'carousel',component:CarouselComponent}
+=======
+  {path : '',component: HomeComponent},
+  { path:'dashboard',component:DashboardComponent},
+>>>>>>> 5bf26af17f4a52115c3bf07d59d0bb978e94e080
   //{path : 'signin',component:SigninComponent},
   //{path:'login',component : LoginComponent},
   //{ path: '', redirectTo: 'login', pathMatch: 'full' },

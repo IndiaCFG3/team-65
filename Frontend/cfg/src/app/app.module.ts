@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,7 +23,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatRadioModule} from '@angular/material/radio';
 import { SigninComponent } from './signin/signin.component';
 
@@ -29,10 +30,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+<<<<<<< HEAD
 import { StudentreportComponent } from './studentreport/studentreport.component';
 import {CarouselComponent} from './carousel/carousel.component';
 import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+=======
+import { CarouselComponent } from './carousel/carousel.component';  
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+>>>>>>> 5bf26af17f4a52115c3bf07d59d0bb978e94e080
 
 @NgModule({
   declarations: [
@@ -43,12 +49,16 @@ import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     SigninComponent,
     DashboardComponent,
+<<<<<<< HEAD
     StudentreportComponent,
     CarouselComponent,
     
 
     
     
+=======
+    CarouselComponent
+>>>>>>> 5bf26af17f4a52115c3bf07d59d0bb978e94e080
   ],
   imports: [
     MatRadioModule,
@@ -67,9 +77,12 @@ import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSlideToggleModule,
     MatSliderModule,
     MatCheckboxModule,
-    FlexLayoutModule,
     HttpClientModule,
+<<<<<<< HEAD
     NgbModule
+=======
+    NgbModule,
+>>>>>>> 5bf26af17f4a52115c3bf07d59d0bb978e94e080
   ],
   providers: [
     AuthService,
