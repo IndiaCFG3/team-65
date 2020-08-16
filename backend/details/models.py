@@ -23,16 +23,14 @@ class Student(models.Model):
 
 class Evaluation(models.Model):
     student=models.ForeignKey(Student,on_delete=models.CASCADE)
-    pub_date=models.DateTimeField('Date published')
+    pub_date=models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.pub_date
-    
+   
 
 class Group(models.Model):
     evaluation=models.ForeignKey(Evaluation,on_delete=models.CASCADE)
     group_name= models.CharField(max_length=100)
-    pub_date = models.DateTimeField('Date published')
+    pub_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.group_name
@@ -40,7 +38,7 @@ class Group(models.Model):
 class Criteria(models.Model): 
     group = models.ForeignKey(Group,on_delete=models.CASCADE)
     criteria_name= models.CharField(max_length=100)
-    selected= models.BooleanField(default=0)
+    selected= models.BooleanField(default=False)
     description=models.CharField(max_length=200)
 
     def __str__(self):
