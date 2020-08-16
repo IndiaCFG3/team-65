@@ -5,11 +5,13 @@ import {LoginComponent} from './login/login.component';
 import {SigninComponent} from './signin/signin.component';
 import { AuthGuard } from './auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentreportComponent } from './studentreport/studentreport.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
-  {path : '',component: HomeComponent},
+  
   { path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'report',component:StudentreportComponent}
   //{path : 'signin',component:SigninComponent},
   //{path:'login',component : LoginComponent},
   //{ path: '', redirectTo: 'login', pathMatch: 'full' },

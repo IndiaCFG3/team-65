@@ -29,6 +29,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentreportComponent } from './studentreport/studentreport.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     SigninComponent,
     DashboardComponent,
+    StudentreportComponent
     
   ],
   imports: [
