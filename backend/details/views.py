@@ -118,15 +118,62 @@ class EvaluationView(APIView):
                 lseval[txt] = ls 
 
                 
-
-                # print(lseval)
-                # data= { "Evaluations": ser.data, "Group": ser2.data}
-                # ls["Evaluations"]=ser.data
-                # ls["Group"] = ser2.data
-            # print(lseval)
             studentdata[x.student_name] = lseval
 
-            
         return Response(studentdata)
 
+class IndividualEval(APIView):
+    def get(self, request):
+        # studentname = request.GET['studentname']
     
+        userdata= request.user
+
+        students = Student.objects.filter(teacher = userdata )
+        indiscores={}
+        studentdata = {}
+        groupscorelist=[]
+        for x in students:
+        # movie_id= request.query_params.get('id')
+          
+            
+            
+            evaluations = Evaluation.objects.filter(student=x)
+            lseval = {}
+            for y in evaluations:
+                id1 = y.id
+                groupdata = Group.objects.filter(evaluation=id1)
+                ls = {}
+                for i in groupdata:
+                    temp = Criteria.objects.filter(group = i.id)
+                    ser4 = CriteriaSerializer(temp, many=True)
+                    text = "group_" + str(i.id)
+                    ls[text] = ser4.data
+                
+                
+                ser2 = GroupSerializer(groupdata, many=True)
+                ser = EvaluationSerializer(y, many=True)
+                ls["Group"]=ser2.data
+                txt = "eval_"+str(y.id)
+                
+                for i in groupdata:
+                    temp = Criteria.objects.filter(group = i.id)
+                    sel = 0
+                    total = 0
+                    for criteria in temp:
+                        if criteria.selected == True:
+                            sel= sel+1
+                        total = total + 1
+                    per = (sel/total)*100
+                    # text = "Group_score_"+ str(i.id)
+                    score = { i.group_name: per}
+                    groupscorelist.append(score)    
+                    # ls[i.group_name] = per
+                ls["groupscores"] = groupscorelist   
+                lseval[txt] = ls 
+
+                
+            studentdata[x.student_name] = lseval
+        indiscores['groupscores'] = groupscorelist
+
+
+        return Response(indiscores)    
