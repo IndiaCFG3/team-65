@@ -27,6 +27,7 @@ import { SigninComponent } from './signin/signin.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
@@ -62,6 +63,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   providers: [
     AuthService,
+   
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
