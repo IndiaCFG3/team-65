@@ -24,7 +24,7 @@ from accounts import views
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path("api/", include("accounts.urls")),
+    path("api/", include("accounts.urls")),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # path("moviedetails/", views.MovieSingle.as_view(), name="dash"),
 ]
